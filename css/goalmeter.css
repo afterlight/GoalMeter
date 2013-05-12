@@ -2,11 +2,11 @@
     width:750px;
     margin:30px auto;
 }
-.thermometer {
+.goal-meter {
     float: left;
     margin:0 150px;
 }
-.thermometer {
+.goal-meter {
     width:70px;
     height:300px;
     position: relative;
@@ -25,7 +25,7 @@
             box-shadow: 1px 1px 4px #999, 5px 0 20px #999;
 }
 
-.thermometer .track {
+.goal-meter .goal-meter-track {
     height:280px;
     top:10px;
     width:20px;
@@ -43,7 +43,7 @@
     background-size: 100% 5%;
 }
 
-.thermometer .progress {
+.goal-meter .goal-meter-progress {
     height:0%;
     width:100%;
     background: rgb(20,100,20);
@@ -53,12 +53,12 @@
     left:0;
 }
 
-.thermometer .goal {
+.goal-meter .goal-meter-goal {
     position:absolute;
     top:0;
 }
 
-.thermometer .amount {
+.goal-meter .goal-meter-amount {
     display: inline-block;
     padding:0 5px 0 60px;
     border-top:1px solid black;
@@ -67,7 +67,7 @@
     color:#333;
 }
 
-.thermometer .progress .amount {
+.goal-meter .goal-meter-progress .goal-meter-amount {
     padding:0 60px 0 5px;
     position: absolute;
     border-top:1px solid #060;
@@ -76,16 +76,16 @@
 }
 
 
-.thermometer.horizontal {
+.goal-meter.goal-meter-horizontal {
     margin:100px auto;
 }
 
-.thermometer.horizontal {
+.goal-meter.goal-meter-horizontal {
     width:350px;
     height:70px;
 }
 
-.thermometer.horizontal .track {
+.goal-meter.goal-meter-horizontal .goal-meter-track {
     width:90%;
     left:0;
     height:20px;
@@ -100,18 +100,18 @@
     background-size: 5% 100%;
 }
 
-.thermometer.horizontal .progress {
+.goal-meter.goal-meter-horizontal .goal-meter-progress {
     height:100%;
     width:0%;
 }
 
-.thermometer.horizontal .goal {
+.goal-meter.goal-meter-horizontal .goal-meter-goal {
     position:absolute;
     left:100%;
     height:100%;
 }
 
-.thermometer.horizontal .amount {
+.goal-meter.goal-meter-horizontal .goal-meter-amount {
     bottom:0;
     position: absolute;
     padding:0 5px 50px 5px;
@@ -120,7 +120,7 @@
 
 }
 
-.thermometer.horizontal .progress .amount {
+.goal-meter.goal-meter-horizontal .goal-meter-progress .goal-meter-amount {
     border-left:0;
     border-top:0;
     border-right:1px solid #060;

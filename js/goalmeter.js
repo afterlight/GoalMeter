@@ -73,11 +73,11 @@
         init: function goalMeterInit() {
 
 			// get all them DOM references yo.
-			this.$progress = $(".progress", this.$element);
-			this.$goal = $(".goal", this.$element);
+			this.$progress = $(".goal-meter-progress", this.$element);
+			this.$goal = $(".goal-meter-goal", this.$element);
 
 			// What axis are we on?
-			this.isHorizontal = this.$element.hasClass("horizontal");
+			this.isHorizontal = this.$element.hasClass("goal-meter-horizontal");
 
 			// init a clean CSS object
 			this.newCSS = {};
@@ -162,20 +162,26 @@
 		render: function goalMeterRender() {
 			var self = this;
 
+			// Cache amount jQuery elements on first use.
+			this.$goalAmount = this.$goalAmount || this.$goal.find(".goal-meter-amount");
+			this.$progressAmount = this.$progressAmount || this.$progress.find(".goal-meter-amount");
+
 			//let's hide the progress indicator
-			this.$progress.find(".amount").hide();
+			this.$progressAmount.hide();
 
-			this.$goal.find(".amount").text( this.format( this.goalAmount ) );
-			this.$progress.find(".amount").text( this.format( this.progressAmount ) );
+			// Update the amounts
+			this.$goalAmount.text( this.format( this.goalAmount ) );
+			this.$progressAmount.text( this.format( this.progressAmount ) );
 
+			// animate the progress bar
 			if (this.options.animate !== false) {
 				this.$progress.animate( this.newCSS, this.options.slideDuration, function(){
-					$(this).find(".amount").fadeIn(self.options.fadeDuration);
+					self.$progressAmount.fadeIn(self.options.fadeDuration);
 				});
 			}
-			else {
+			else { // (or if we don't want to animate just update the CSS
 				this.$progress.css( this.newCSS );
-				this.$progress.find(".amount").fadeIn( this.options.animate ? this.options.fadeDuration : 0 );
+				this.$progressAmount.show();
 			}
 		}
 
@@ -197,7 +203,9 @@
 
 })( jQuery, window, document );
 
-//Lovingly copied and pasted from http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
+
+
+// Lovingly copied and pasted from http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 function formatCurrency(n, c, d, t) {
     "use strict";
 
@@ -220,21 +228,24 @@ $(document).ready(function(){
 	"use strict";
 
 	// Example using a formatter function
-	$("#thermo1").goalMeter({
+	$("#goal-meter-1").goalMeter({
 		formatter: function(number) {
 			return "$" + formatCurrency(number);
 		}
 	});
 
-	// Or just plain.
-	$("#thermo2").goalMeter();
+	// You can also pass in your amounts from the start.
+	$("#goal-meter-2").goalMeter({
+		goalAmount: 1000000,
+		progressAmount: 200000
+	});
 
     //call without the parameters to have it read from the DOM
-    //$("#thermo1").goalMeter();
+    //$("#goal-meter-1").goalMeter();
     // or with parameters if you want to update it using JavaScript.
     // you can update it live, and choose whether to show the animation
     // (which you might not if the updates are relatively small)
-    //$("#thermo1").goalMeter({ progressAmount: 123456 });
+    //$("#goal-meter-1").goalMeter({ progressAmount: 123456 });
 
 });
 
