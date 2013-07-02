@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Goalmeter : A simple progress bar / goal meter / &quot;thermometer&quot; display for displaying the progress towards a particular goal." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Goalmeter</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/afterlight/GoalMeter">View on GitHub</a>
+
+          <h1 id="project_title">Goalmeter</h1>
+          <h2 id="project_tagline">A simple progress bar / goal meter / &quot;thermometer&quot; display for displaying the progress towards a particular goal.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/afterlight/GoalMeter/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/afterlight/GoalMeter/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="goalmeter" class="anchor" href="#goalmeter"><span class="octicon octicon-link"></span></a>GoalMeter</h1>
+
+<p>A simple progress bar / goal meter / "thermometer" display for displaying the progress towards a particular goal. </p>
+
+<p>This jQuery plugin is pretty simple and requires you to have only some basic markup - styling is up to you. Do take a look at the base styles provided to get an idea of what elements you can/should apply styles to.</p>
+
+<h2>
+<a name="starting-out" class="anchor" href="#starting-out"><span class="octicon octicon-link"></span></a>Starting out</h2>
+
+<p>Basic Markup required:</p>
+
+<pre><code>&lt;div id="goal-meter-1" class="goal-meter"&gt;
+
+    &lt;div class="goal-meter-track"&gt;
+        &lt;div class="goal-meter-goal"&gt;
+            &lt;div class="goal-meter-amount"&gt; 90000 &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="goal-meter-progress"&gt;
+            &lt;div class="goal-meter-amount"&gt;47835 &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+<p>The Goal Meter can then be called with:</p>
+
+<pre><code>$("#goal-meter-1").goalMeter()
+</code></pre>
+
+<h2>
+<a name="available-options" class="anchor" href="#available-options"><span class="octicon octicon-link"></span></a>Available Options</h2>
+
+<pre><code>goalAmount:     0     // Number:   Goal Amount 
+progressAmount: 0,    // Number:   Progress Amount
+animate:        true, // Boolean:  Animate? 
+slideDuration:  1000, // Number:   Animation speed of the progress bar (milliseconds)
+fadeDuration:   500,  // Number:   Animation fade in speed of the amount (ms)
+formatter:      null  // Function: Optional formatter function.  
+</code></pre>
+
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Simple goal meter with numbers already in the DOM</p>
+
+<pre><code>$(".goal-meter").goalMeter();
+</code></pre>
+
+<p>Provide your own values</p>
+
+<pre><code>$("#goal-meter").goalMeter({
+    goalAmount: 1000,
+    progressAmount: 425
+});
+</code></pre>
+
+<p>Using a formatter</p>
+
+<pre><code>$(".goal-meter").goalMeter({
+    formatter: function(number) {
+        return "$" + number; //just prepend the number with a currency symbol
+    }
+})
+</code></pre>
+
+<p>Live updating </p>
+
+<pre><code>// Somewhere at the start of your code - you init the goal meter
+
+$("#goal-meter").goalMeter(); // let's say your DOM had a goal of 1000 and a progress of 425
+
+// Sometime later...
+// You might get some data from the server via an asynchronous request.
+// If you want to update the goal meter simply call it on that same element...
+// Just with updated values.
+
+$("#goal-meter").goalMeter({ progressAmount: 535 });
+</code></pre>
+
+<h2>
+<a name="origins" class="anchor" href="#origins"><span class="octicon octicon-link"></span></a>Origins</h2>
+
+<p>The initial goal of this script was to provide a "Fund raising thermometer". </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Goalmeter maintained by <a href="https://github.com/afterlight">afterlight</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
