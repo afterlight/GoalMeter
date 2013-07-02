@@ -425,3 +425,13 @@ Small Device Styles
   }
 
 }
+
+.demo {
+	margin:20px 0;
+	width:100%;
+	float:left;
+}
+
+body .goal-meter.goal-meter-horizontal {
+	margin-bottom:20px;
+}
