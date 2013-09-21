@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-	<link rel="stylesheet" href="https://rawgithub.com/afterlight/GoalMeter/master/css/goalmeter.css" />
-	<title>Goalmeter</title>
+    <title>Goalmeter</title>
   </head>
 
   <body>
@@ -39,24 +38,6 @@
 
 <p>This jQuery plugin is pretty simple and requires you to have only some basic markup - styling is up to you. Do take a look at the base styles provided to get an idea of what elements you can/should apply styles to.</p>
 
-<div class="demo">
-	<div id="goal-meter-1" class="goal-meter">
-
-		<div class="goal-meter-track">
-			<div class="goal-meter-goal">
-				<div class="goal-meter-amount"> 90000 </div>
-			</div>
-			<div class="goal-meter-progress">
-				<div class="goal-meter-amount">47835 </div>
-			</div>
-		</div>
-
-	</div>
-
-
-</div>
-
-
 <h2>
 <a name="starting-out" class="anchor" href="#starting-out"><span class="octicon octicon-link"></span></a>Starting out</h2>
 
@@ -84,12 +65,12 @@
 <h2>
 <a name="available-options" class="anchor" href="#available-options"><span class="octicon octicon-link"></span></a>Available Options</h2>
 
-<pre><code>goalAmount:     0     // Number:   Goal Amount
+<pre><code>goalAmount:     0     // Number:   Goal Amount 
 progressAmount: 0,    // Number:   Progress Amount
-animate:        true, // Boolean:  Animate?
+animate:        true, // Boolean:  Animate? 
 slideDuration:  1000, // Number:   Animation speed of the progress bar (milliseconds)
 fadeDuration:   500,  // Number:   Animation fade in speed of the amount (ms)
-formatter:      null  // Function: Optional formatter function.
+formatter:      null  // Function: Optional formatter function.  
 </code></pre>
 
 <h2>
@@ -117,7 +98,6 @@ formatter:      null  // Function: Optional formatter function.
 })
 </code></pre>
 
-
 <p>Live updating </p>
 
 <pre><code>// Somewhere at the start of your code - you init the goal meter
@@ -132,25 +112,6 @@ $("#goal-meter").goalMeter(); // let's say your DOM had a goal of 1000 and a pro
 $("#goal-meter").goalMeter({ progressAmount: 535 });
 </code></pre>
 
-<div class="demo">
-	<div id="goal-meter-2" class="goal-meter goal-meter-horizontal">
-
-		<div class="goal-meter-track">
-			<div class="goal-meter-goal">
-				<div class="goal-meter-amount"> 1000000 </div>
-			</div>
-			<div class="goal-meter-progress">
-				<div class="goal-meter-amount"> 354680 </div>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="demo">
-		<button class="update" data-target="#goal-meter-2">Update Goal Meter</button>
-	</div>
-</div>
-
 <h2>
 <a name="origins" class="anchor" href="#origins"><span class="octicon octicon-link"></span></a>Origins</h2>
 
@@ -162,21 +123,11 @@ $("#goal-meter").goalMeter({ progressAmount: 535 });
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">Goalmeter maintained by <a href="https://github.com/afterlight">afterlight</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
+    
 
-
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script src="https://rawgithub.com/afterlight/GoalMeter/master/js/goalmeter.js"></script>
-	<script src="https://rawgithub.com/afterlight/GoalMeter/master/js/demo.js"></script>
-	<script>
-		$(".update").on("click", function() {
-			var $tar = $($(this).data("target")),
-				amount = Math.round(Math.random() * parseFloat( $tar.find(".goal-meter-goal").text() ));
-
-		 	$tar.goalMeter({ progressAmount: amount });
-		});
-	</script>
   </body>
 </html>
