@@ -85,3 +85,4 @@ $("#goal-meter").goalMeter({ progressAmount: 535 });
 
 The initial goal of this script was to provide a "Fund raising thermometer". 
 
+---
